@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - FarmaTodos</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="background">
+    <div class="card-container">
+      <div class="left-panel">
+        <img src="logo.png" alt="Logo da FarmaTodos" class="logo" />
+        <h1>Seja bem vindo!</h1>
+        <p>Você pode fazer login para acessar com sua conta existente.</p>
+      </div>
+
+      <div class="right-panel">
+        <form id="login-form" class="login-form">
+          <h2>Entrar</h2>
+          <input type="text" id="email" placeholder="Nome ou email" required />
+          <input type="password" id="password" placeholder="Senha" required />
+          <div class="options">
+            <label><input type="checkbox" /> Lembre de mim</label>
+            <a href="#">Esqueceu a senha?</a>
+          </div>
+          <button type="submit">Entrar</button>
+          <p class="register">Novo aqui? <a href="../Cadastro_do_usuario/cadastro.html">Criar nova conta</a></p>
+
+          <p class="register">
+            <a href="../Painel Principal/painel.html">
+              <button type="button">Ir para o Painel Principal</button>
+            </a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

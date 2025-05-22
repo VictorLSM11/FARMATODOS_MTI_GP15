@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FarmaTodos - Painel</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="painel.css" rel="stylesheet" />
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-800">
+
+  <header class="bg-red-600 text-white p-4 flex items-center justify-between shadow-lg">
+  <div class="flex items-center gap-4">
+    <img src="https://i.pinimg.com/736x/f5/c4/51/f5c451ac36a515782cddbee1641a295d.jpg" alt="FarmaTodos" class="h-12 w-12 rounded-full shadow-md" />
+    <h1 class="text-2xl font-bold">FarmaTodos</h1>
+  </div>
+    <button onclick="location.href='../Login1/login.html'" class="border px-4 py-2 rounded">Desconectar</button>
+
+  </header>
+
+  <main class="p-6 max-w-6xl mx-auto">
+    
+    <div class="flex flex-wrap bg-white rounded-xl p-3 mb-6 shadow gap-2">
+      <button onclick="mostrarAba('sobre')" class="tab px-4 py-2 rounded-lg border hover:bg-red-100 transition">📃Sobre</button>
+      <button onclick="mostrarAba('perfil')" class="tab px-4 py-2 rounded-lg border hover:bg-red-100 transition">🙎‍♀️Meu Perfil</button>
+      <button onclick="mostrarAba('loja')" class="tab px-4 py-2 rounded-lg border hover:bg-red-100 transition">🛒Loja</button>
+      <button onclick="mostrarAba('carrinho')" class="tab px-4 py-2 rounded-lg border hover:bg-red-100 transition">💲Carrinho</button>
+      <button onclick="mostrarAba('pagamento')" class="tab px-4 py-2 rounded-lg border hover:bg-red-100 transition">📑Pagamento</button>
+      <button onclick="mostrarAba('pedidos')" class="tab px-4 py-2 rounded-lg border hover:bg-red-100 transition">🛍️Pedidos</button>
+    </div>
+
+    <section id="sobre" class="aba">
+  <div class="bg-white p-6 rounded-xl shadow space-y-4 text-center">
+    <img src="https://i.pinimg.com/736x/f5/c4/51/f5c451ac36a515782cddbee1641a295d.jpg" alt="FarmaTodos" class="h-32 w-32 rounded-full shadow-black shadow-2xl mx-auto mb-4" />
+    
+    <h2 class="text-xl font-bold text-red-600">Sobre o FarmaTodos</h2>
+    <p>
+
+      O <strong>FarmaTodos</strong> é uma plataforma inovadora criada em 2025 com o objetivo de simplificar e facilitar a compra de medicamentos, promovendo bem-estar e qualidade de vida para nossos usuários.
+    </p>
+    <p>
+      Este projeto foi desenvolvido como parte da disciplina de <strong>Microsserviços em Tecnologia da Informação</strong>, no <strong>Senac - Campus Santo Amaro</strong>, unindo teoria e prática em uma solução digital moderna.
+    </p>
+    <p>
+      A equipe de desenvolvimento é formada por estudantes dedicados e apaixonados por tecnologia, que contribuíram ativamente para o sucesso deste sistema:
+    </p>
+    <ul class="list-disc list-inside text-left mx-auto max-w-md">
+      <li>Antônio Francisco</li>
+      <li>Arthur Marques</li>
+      <li>Lucas Rezende</li>
+      <li>Victor Leonardi</li>
+    </ul>
+    <p>
+      Se você deseja apoiar o desenvolvimento deste aplicativo e incentivar o crescimento dos estudantes envolvidos, qualquer contribuição será muito bem-vinda.
+    </p>
+    <p>
+      Para colaborar, basta escanear o QR Code abaixo e realizar sua doação via PIX:
+    </p>
+    <img src="https://i.pinimg.com/736x/c8/de/2a/c8de2a242a246085a9dba694d94cab46.jpg" alt="Logo FarmaTodos" class="mx-auto w-64 h-auto mb-4">
+  </div>
+</section>
+
+
+    <section id="perfil" class="aba hidden">
+  <div class="bg-white p-6 rounded-xl shadow space-y-6">
+    <div class="flex flex-col md:flex-row gap-6 items-start">
+      <img id="avatar-preview" src="https://images.icon-icons.com/2643/PNG/512/avatar_female_woman_person_people_white_tone_icon_159360.png" alt="Usuário" class="w-32 h-32 rounded-full avatar shadow-md object-cover" />
+      
+      <div class="flex-1 space-y-4">
+        <!-- Caixas de texto não interativas -->
+        <input type="text" value="Nome: Usuario1" class="border p-3 w-full rounded-lg shadow-sm bg-gray-100 cursor-not-allowed" readonly />
+        <input type="text" value="E-mail: usuario1@example.com" class="border p-3 w-full rounded-lg shadow-sm bg-gray-100 cursor-not-allowed" readonly />
+        <input type="text" value="Telefone: (00) 00000-0000" class="border p-3 w-full rounded-lg shadow-sm bg-gray-100 cursor-not-allowed" readonly />
+
+        <!-- Texto informativo -->
+        <p class="text-center text-gray-600 font-semibold">Altere seus dados</p>
+
+        <!-- Caixas interativas -->
+        <input placeholder="Nome do Usuário" class="border p-3 w-full rounded-lg shadow-sm" />
+        <input placeholder="E-mail" type="email" class="border p-3 w-full rounded-lg shadow-sm" />
+        <input placeholder="Telefone" type="tel" class="border p-3 w-full rounded-lg shadow-sm" />
+
+        <button id="btnSalvar" class="bg-red-600 text-white px-6 py-3 rounded-lg shadow hover:bg-red-700 transition">
+          Salvar Alterações
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('btnSalvar').addEventListener('click', function() {
+    alert('Dados alterados e atualizados com sucesso!');
+  });
+</script>
+
+
+    <section id="loja" class="aba hidden">
+      <div id="produtos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div class="mt-6 text-center">
+        <button onclick="mostrarAba('carrinho')" class="bg-red-600 text-white px-6 py-3 rounded-lg shadow hover:bg-red-700 transition">Ir para o Carrinho</button>
+      </div>
+    </section>
+
+    <section id="carrinho" class="aba hidden">
+      <div id="lista-carrinho" class="space-y-4"></div>
+    </section>
+
+    <section id="pagamento" class="aba hidden max-w-md mx-auto">
+      <div class="bg-white p-6 rounded-xl shadow space-y-4">
+        <h2 class="font-bold text-xl">Forma de pagamento</h2>
+        <div class="space-y-2">
+          <label><input type="radio" name="pagamento" /> 💶Cartão de Débito</label>
+          <label><input type="radio" name="pagamento" /> 💴Cartão de Crédito</label>
+          <label><input type="radio" name="pagamento" /> 💵Pix</label>
+        </div>
+        <input placeholder="Nome no cartão ou CPF" class="border p-3 w-full rounded-lg shadow-sm" />
+        <input placeholder="Número do cartão ou chave Pix" class="border p-3 w-full rounded-lg shadow-sm" />
+        <button onclick="finalizarCompra()" class="bg-red-600 text-white px-6 py-3 rounded-lg shadow hover:bg-red-700 transition w-full">
+          Finalizar Compra
+        </button>
+      </div>
+    </section>
+
+    <section id="pedidos" class="aba hidden">
+      <div id="lista-pedidos" class="space-y-4"></div>
+    </section>
+
+  </main>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+
+    function mostrarAba(id) {
+      document.querySelectorAll('.aba').forEach(el => el.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(tab => {
+        if(tab.textContent.trim().toLowerCase() === id) {
+          tab.classList.add('active');
+        }
+      });
+
+      if(id === 'carrinho') atualizarCarrinho();
+      if(id === 'pedidos') atualizarPedidos();
+    }
+
+    const produtos = [
+      { nome: "💊Remédio 1", preco: 80.00, imagem: "https://www.provepsico.com.br/wp-content/uploads/2022/07/WhatsApp-Image-2022-07-06-at-10.09.28.jpeg" },
+      { nome: "💊Remédio 2", preco: 45.50, imagem: "https://jornal.usp.br/wp-content/uploads/2019/05/20190528_00_remedios_medicamentos_computador_rastreamento.jpg" },
+      { nome: "💊Remédio 3", preco: 10.00, imagem: "https://www.infomoney.com.br/wp-content/uploads/2019/06/capsulas-remedio-medicamento.jpg?fit=900%2C600&quality=50&strip=all" },
+      { nome: "💊Remédio 4", preco: 55.75, imagem: "https://conceito.de/wp-content/uploads/2022/08/pills-6127501_1280.jpg" },
+      { nome: "💊Remédio 5", preco: 39.99, imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsAj83tI3rHGILmNQiX4aE1D85NJZF42xO7GBP6nWqE_2rU9mmmZz-tdcbdHrduQXWIzk&usqp=CAU" },
+      { nome: "💊Remédio 6", preco: 22.00, imagem: "https://static.ndmais.com.br/2020/03/pills-384846_1280-800x533.jpg" }
+    ];
+
+    let quantidades = produtos.map(() => 0);
+
+    function alterarQuantidade(i, valor) {
+      const valInt = parseInt(valor);
+      quantidades[i] = isNaN(valInt) || valInt < 0 ? 0 : valInt;
+      atualizarCarrinho();
+      atualizarInputProduto(i);
+    }
+
+    function atualizarInputProduto(i) {
+      const input = document.getElementById(`input-qtd-${i}`);
+      if(input) input.value = quantidades[i];
+    }
+
+    function gerarProdutos() {
+      const container = document.getElementById('produtos');
+      container.innerHTML = '';
+      produtos.forEach((produto, i) => {
+        container.innerHTML += `
+          <div class="bg-white rounded-xl p-4 shadow space-y-3">
+            <img src="${produto.imagem}" alt="${produto.nome}" class="rounded-xl w-full h-40 object-cover" />
+            <h2 class="text-lg font-semibold">${produto.nome}</h2>
+            <p class="text-gray-600">R$ ${produto.preco.toFixed(2).replace('.', ',')}</p>
+            <div class="flex items-center gap-2">
+              <button onclick="alterarQuantidade(${i}, quantidades[${i}] - 1)" class="px-3 py-1 border rounded-lg">-</button>
+              <input id="input-qtd-${i}" type="number" min="0" value="${quantidades[i]}" onchange="alterarQuantidade(${i}, this.value)" class="w-16 border p-1 rounded-lg text-center" />
+              <button onclick="alterarQuantidade(${i}, quantidades[${i}] + 1)" class="px-3 py-1 border rounded-lg">+</button>
+              <button onclick="alterarQuantidade(${i}, 0)" class="px-3 py-1 bg-red-600 text-white rounded-lg">🗑</button>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    function atualizarCarrinho() {
+      const lista = document.getElementById('lista-carrinho');
+      lista.innerHTML = '';
+      let total = 0;
+      quantidades.forEach((qtd, i) => {
+        if (qtd > 0) {
+          const subtotal = produtos[i].preco * qtd;
+          total += subtotal;
+          lista.innerHTML += `
+            <div class="flex justify-between items-center bg-white p-4 rounded-xl shadow">
+              <div>
+                <h2 class="font-semibold">${produtos[i].nome}</h2>
+                <p>Quantidade: ${qtd}</p>
+              </div>
+              <p class="font-bold">R$ ${subtotal.toFixed(2).replace('.', ',')}</p>
+            </div>
+          `;
+        }
+      });
+      if(total > 0) {
+        lista.innerHTML += `<div class="text-right font-bold text-xl">Total: R$ ${total.toFixed(2).replace('.', ',')}</div>`;
+        lista.innerHTML += `<div class="mt-4 text-center">
+          <button onclick="mostrarAba('pagamento')" class="bg-red-600 text-white px-6 py-3 rounded-lg shadow hover:bg-red-700 transition">Finalizar Compra</button>
+        </div>`;
+      } else {
+        lista.innerHTML = '<p class="text-center text-gray-500">Seu carrinho está vazio.</p>';
+      }
+    }
+
+    let pedidos = [];
+
+    function finalizarCompra() {
+      // Simples validação de forma de pagamento
+      const forma = document.querySelector('input[name="pagamento"]:checked');
+      if (!forma) {
+        alert('Por favor, selecione uma forma de pagamento.');
+        return;
+      }
+
+      // Criar pedido com produtos no carrinho
+      const itensPedido = quantidades.map((qtd, i) => ({ produto: produtos[i], quantidade: qtd })).filter(item => item.quantidade > 0);
+      if(itensPedido.length === 0){
+        alert('Carrinho vazio.');
+        return;
+      }
+
+      pedidos.push({ id: pedidos.length + 1, itens: itensPedido, data: new Date() });
+      // Resetar carrinho
+      quantidades = quantidades.map(() => 0);
+      gerarProdutos();
+      mostrarAba('pedidos');
+      alert('Compra finalizada com sucesso!');
+    }
+
+    function atualizarPedidos() {
+      const lista = document.getElementById('lista-pedidos');
+      lista.innerHTML = '';
+      if(pedidos.length === 0){
+        lista.innerHTML = '<p class="text-center text-gray-500">Nenhum pedido realizado ainda.</p>';
+        return;
+      }
+      pedidos.forEach(pedido => {
+        let itensHtml = pedido.itens.map(item => `<li>${item.produto.nome} x ${item.quantidade}</li>`).join('');
+        lista.innerHTML += `
+          <div class="bg-white p-4 rounded-xl shadow space-y-2">
+            <h3 class="font-bold">Pedido #${pedido.id}</h3>
+            <p>Data: ${pedido.data.toLocaleString('pt-BR')}</p>
+            <ul class="list-disc list-inside">${itensHtml}</ul>
+          </div>
+        `;
+      });
+    }
+
+    // Inicializa
+    gerarProdutos();
+    mostrarAba('sobre');
+  </script>
+
+</body>
+</html>

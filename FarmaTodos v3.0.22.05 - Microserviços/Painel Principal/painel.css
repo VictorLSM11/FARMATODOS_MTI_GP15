@@ -1,0 +1,10 @@
+/* Estilos adicionais personalizados */
+.avatar {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tab.active {
+  background-color: #dc2626; /* vermelho mais escuro */
+  color: white;
+  border-color: #b91c1c;
+}
