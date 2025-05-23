@@ -27,6 +27,7 @@
       <button onclick="mostrarAba('carrinho')" class="tab px-4 py-2 rounded-lg border hover:bg-red-100 transition">💲Carrinho</button>
       <button onclick="mostrarAba('pagamento')" class="tab px-4 py-2 rounded-lg border hover:bg-red-100 transition">📑Pagamento</button>
       <button onclick="mostrarAba('pedidos')" class="tab px-4 py-2 rounded-lg border hover:bg-red-100 transition">🛍️Pedidos</button>
+      <button onclick="mostrarAba('estoque')" class="tab px-4 py-2 rounded-lg border hover:bg-red-100 transition">📦Estoque</button>
     </div>
 
     <section id="sobre" class="aba">
@@ -125,6 +126,86 @@
     <section id="pedidos" class="aba hidden">
       <div id="lista-pedidos" class="space-y-4"></div>
     </section>
+
+    <section id="estoque" class="aba hidden">
+  <div class="bg-white p-6 rounded-xl shadow space-y-4">
+    <h2 class="text-xl font-bold text-red-600 mb-4">📦 Estoque Atual</h2>
+    <table class="min-w-full table-auto border-collapse border border-gray-300">
+      <thead>
+        <tr class="bg-red-100">
+          <th class="border border-gray-300 px-4 py-2 text-left">Imagem</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Produto</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Quantidade em Estoque</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Preço Unitário</th>
+        </tr>
+      </thead>
+      <tbody id="tabela-estoque">
+        <!-- Linhas serão inseridas pelo JS -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<script>
+  const estoque = [
+    { 
+      nome: "💊Remédio 1", 
+      quantidade: 10, 
+      preco: 80.00,
+      imagem: "https://www.provepsico.com.br/wp-content/uploads/2022/07/WhatsApp-Image-2022-07-06-at-10.09.28.jpeg"
+    },
+    { 
+      nome: "💊Remédio 2", 
+      quantidade: 5, 
+      preco: 45.50,
+      imagem: "https://jornal.usp.br/wp-content/uploads/2019/05/20190528_00_remedios_medicamentos_computador_rastreamento.jpg"
+    },
+    { 
+      nome: "💊Remédio 3", 
+      quantidade: 20, 
+      preco: 10.00,
+      imagem: "https://www.infomoney.com.br/wp-content/uploads/2019/06/capsulas-remedio-medicamento.jpg?fit=900%2C600&quality=50&strip=all"
+    },
+    { 
+      nome: "💊Remédio 4", 
+      quantidade: 15, 
+      preco: 55.75,
+      imagem: "https://conceito.de/wp-content/uploads/2022/08/pills-6127501_1280.jpg"
+    },
+    { 
+      nome: "💊Remédio 5", 
+      quantidade: 8, 
+      preco: 39.99,
+      imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsAj83tI3rHGILmNQiX4aE1D85NJZF42xO7GBP6nWqE_2rU9mmmZz-tdcbdHrduQXWIzk&usqp=CAU"
+    },
+    { 
+      nome: "💊Remédio 6", 
+      quantidade: 25, 
+      preco: 22.00,
+      imagem: "https://static.ndmais.com.br/2020/03/pills-384846_1280-800x533.jpg"
+    }
+  ];
+
+  function atualizarEstoque() {
+    const tbody = document.getElementById('tabela-estoque');
+    tbody.innerHTML = '';
+    estoque.forEach(item => {
+      tbody.innerHTML += `
+        <tr>
+          <td class="border border-gray-300 px-4 py-2">
+            <img src="${item.imagem}" alt="${item.nome}" class="w-12 h-12 object-cover rounded-full" />
+          </td>
+          <td class="border border-gray-300 px-4 py-2">${item.nome}</td>
+          <td class="border border-gray-300 px-4 py-2">${item.quantidade}</td>
+          <td class="border border-gray-300 px-4 py-2">R$ ${item.preco.toFixed(2).replace('.', ',')}</td>
+        </tr>
+      `;
+    });
+  }
+
+  atualizarEstoque();
+</script>
+
 
   </main>
 
