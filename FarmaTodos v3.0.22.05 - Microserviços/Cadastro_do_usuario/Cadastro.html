@@ -92,6 +92,7 @@
     .link a {
       color: #ff4e50;
       text-decoration: none;
+      cursor: pointer;
     }
     .message {
       margin-top: 10px;
@@ -148,7 +149,7 @@
     <div class="message" id="mensagem"></div>
 
     <div class="link">
-      Já tem uma conta? <a href="login.html">Entrar</a>
+      Já tem uma conta? <a id="entrarLink">Entrar</a>
     </div>
   </div>
 </div>
@@ -206,6 +207,12 @@
     setTimeout(() => {
       location.href = "../Login1/login.html";
     }, 1000);
+  });
+
+  // Redirecionamento ao clicar no link "Entrar"
+  document.getElementById('entrarLink').addEventListener('click', function(e) {
+    e.preventDefault();  // Evita comportamento padrão
+    location.href = "../Login1/login.html";
   });
 </script>
 
