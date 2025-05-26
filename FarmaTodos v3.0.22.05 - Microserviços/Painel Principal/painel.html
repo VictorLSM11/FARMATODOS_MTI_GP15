@@ -7,7 +7,8 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link href="painel.css" rel="stylesheet" />
 </head>
-<body class="min-h-screen bg-gray-50 text-gray-800">
+<body class="min-h-screen text-gray-800" style="background-color: #ffecec;">
+
 
   <header class="bg-red-600 text-white p-4 flex items-center justify-between shadow-lg">
   <div class="flex items-center gap-4">
@@ -27,6 +28,7 @@
       <button onclick="mostrarAba('carrinho')" class="tab px-4 py-2 rounded-lg border hover:bg-red-100 transition">💲Carrinho</button>
       <button onclick="mostrarAba('pagamento')" class="tab px-4 py-2 rounded-lg border hover:bg-red-100 transition">📑Pagamento</button>
       <button onclick="mostrarAba('pedidos')" class="tab px-4 py-2 rounded-lg border hover:bg-red-100 transition">🛍️Pedidos</button>
+      <button onclick="mostrarAba('entrega')" class="tab px-4 py-2 rounded-lg border hover:bg-red-100 transition">🚚Entrega</button>
       <button onclick="mostrarAba('estoque')" class="tab px-4 py-2 rounded-lg border hover:bg-red-100 transition">📦Estoque</button>
     </div>
 
@@ -35,31 +37,39 @@
     <img src="https://i.pinimg.com/736x/f5/c4/51/f5c451ac36a515782cddbee1641a295d.jpg" alt="FarmaTodos" class="h-32 w-32 rounded-full shadow-black shadow-2xl mx-auto mb-4" />
     
     <h2 class="text-xl font-bold text-red-600">Sobre o FarmaTodos</h2>
-    <p>
-
-      O <strong>FarmaTodos</strong> é uma plataforma inovadora criada em 2025 com o objetivo de simplificar e facilitar a compra de medicamentos, promovendo bem-estar e qualidade de vida para nossos usuários.
+    
+    <p style="text-align: justify;">
+      O <strong>FarmaTodos</strong> é uma plataforma inovadora, lançada em 2025, com o objetivo de desenvolver uma solução digital integrada que otimize o processo de compra de medicamentos e a gestão de estoques. Seu propósito é promover maior eficiência operacional, reduzir erros manuais, melhorar a qualidade do atendimento e garantir o controle em tempo real de estoques e entregas.
     </p>
-    <p>
+    
+    <p style="text-align: justify;">
       Este projeto foi desenvolvido como parte da disciplina de <strong>Microsserviços em Tecnologia da Informação</strong>, no <strong>Senac - Campus Santo Amaro</strong>, unindo teoria e prática em uma solução digital moderna.
     </p>
-    <p>
+    
+    <p style="text-align: justify;">
       A equipe de desenvolvimento é formada por estudantes dedicados e apaixonados por tecnologia, que contribuíram ativamente para o sucesso deste sistema:
     </p>
-    <ul class="list-disc list-inside text-left mx-auto max-w-md">
-      <li>Antônio Francisco</li>
-      <li>Arthur Marques</li>
-      <li>Lucas Rezende</li>
-      <li>Victor Leonardi</li>
-    </ul>
-    <p>
+    
+    <ul class="list-disc list-inside text-left max-w-md ml-0">
+  <li>Antônio Francisco</li>
+  <li>Arthur Marques</li>
+  <li>Lucas Rezende</li>
+  <li>Victor Leonardi</li>
+</ul>
+
+    
+    <p style="text-align: justify;">
       Se você deseja apoiar o desenvolvimento deste aplicativo e incentivar o crescimento dos estudantes envolvidos, qualquer contribuição será muito bem-vinda.
     </p>
-    <p>
+    
+    <p style="text-align: justify;">
       Para colaborar, basta escanear o QR Code abaixo e realizar sua doação via PIX:
     </p>
+    
     <img src="https://i.pinimg.com/736x/c8/de/2a/c8de2a242a246085a9dba694d94cab46.jpg" alt="Logo FarmaTodos" class="mx-auto w-64 h-auto mb-4">
   </div>
 </section>
+
 
 
     <section id="perfil" class="aba hidden">
@@ -108,24 +118,33 @@
     </section>
 
     <section id="pagamento" class="aba hidden max-w-md mx-auto">
-      <div class="bg-white p-6 rounded-xl shadow space-y-4">
-        <h2 class="font-bold text-xl">Forma de pagamento</h2>
-        <div class="space-y-2">
-          <label><input type="radio" name="pagamento" /> 💶Cartão de Débito</label>
-          <label><input type="radio" name="pagamento" /> 💴Cartão de Crédito</label>
-          <label><input type="radio" name="pagamento" /> 💵Pix</label>
-        </div>
-        <input placeholder="Nome no cartão ou CPF" class="border p-3 w-full rounded-lg shadow-sm" />
-        <input placeholder="Número do cartão ou chave Pix" class="border p-3 w-full rounded-lg shadow-sm" />
-        <button onclick="finalizarCompra()" class="bg-red-600 text-white px-6 py-3 rounded-lg shadow hover:bg-red-700 transition w-full">
-          Finalizar Compra
-        </button>
-      </div>
-    </section>
+  <div class="bg-white p-6 rounded-xl shadow space-y-4">
+    <h2 class="font-bold text-xl">Forma de pagamento</h2>
+    <div class="space-y-2">
+      <label class="block"><input type="radio" name="pagamento" /> 💶Cartão de Débito</label>
+      <label class="block"><input type="radio" name="pagamento" /> 💴Cartão de Crédito</label>
+      <label class="block"><input type="radio" name="pagamento" /> 💵Pix</label>
+    </div>
+    <input placeholder="Nome no cartão ou CPF" class="border p-3 w-full rounded-lg shadow-sm" />
+    <input placeholder="Número do cartão ou chave Pix" class="border p-3 w-full rounded-lg shadow-sm" />
+    <button onclick="finalizarCompra()" class="bg-red-600 text-white px-6 py-3 rounded-lg shadow hover:bg-red-700 transition w-full">
+      Finalizar Compra
+    </button>
+  </div>
+</section>
+
 
     <section id="pedidos" class="aba hidden">
-      <div id="lista-pedidos" class="space-y-4"></div>
-    </section>
+  <div id="lista-pedidos" class="space-y-4"></div>
+</section>
+
+<section id="entrega" class="aba hidden p-4 border rounded-lg">
+  <h2 class="text-xl font-semibold mb-4">Status de Entrega</h2>
+  <div id="lista-status-pedidos" class="space-y-4"></div>
+</section>
+
+
+
 
     <section id="estoque" class="aba hidden">
   <div class="bg-white p-6 rounded-xl shadow space-y-4">
@@ -140,9 +159,20 @@
         </tr>
       </thead>
       <tbody id="tabela-estoque">
-        <!-- Linhas serão inseridas pelo JS -->
+        <!-- Linhas inseridas pelo JS -->
       </tbody>
     </table>
+
+    <button 
+      onclick="salvarAlteracoes()" 
+      class="mt-4 bg-green-600 text-white px-4 py-2 rounded shadow hover:bg-green-700 transition"
+    >
+      💾 Salvar Alterações
+    </button>
+
+    <div class="mt-2 font-semibold">
+      🧮 Total do Estoque: <span id="total-estoque">R$ 0,00</span>
+    </div>
   </div>
 </section>
 
@@ -186,22 +216,6 @@
     }
   ];
 
-  function atualizarEstoque() {
-    const tbody = document.getElementById('tabela-estoque');
-    tbody.innerHTML = '';
-    estoque.forEach(item => {
-      tbody.innerHTML += `
-        <tr>
-          <td class="border border-gray-300 px-4 py-2">
-            <img src="${item.imagem}" alt="${item.nome}" class="w-12 h-12 object-cover rounded-full" />
-          </td>
-          <td class="border border-gray-300 px-4 py-2">${item.nome}</td>
-          <td class="border border-gray-300 px-4 py-2">${item.quantidade}</td>
-          <td class="border border-gray-300 px-4 py-2">R$ ${item.preco.toFixed(2).replace('.', ',')}</td>
-        </tr>
-      `;
-    });
-  }
 
   atualizarEstoque();
 </script>
@@ -271,77 +285,288 @@
     }
 
     function atualizarCarrinho() {
-      const lista = document.getElementById('lista-carrinho');
-      lista.innerHTML = '';
-      let total = 0;
-      quantidades.forEach((qtd, i) => {
-        if (qtd > 0) {
-          const subtotal = produtos[i].preco * qtd;
-          total += subtotal;
-          lista.innerHTML += `
-            <div class="flex justify-between items-center bg-white p-4 rounded-xl shadow">
-              <div>
-                <h2 class="font-semibold">${produtos[i].nome}</h2>
-                <p>Quantidade: ${qtd}</p>
-              </div>
-              <p class="font-bold">R$ ${subtotal.toFixed(2).replace('.', ',')}</p>
+  const lista = document.getElementById('lista-carrinho');
+  lista.innerHTML = ''; // limpa lista
+  let total = 0;
+
+  const containerItens = document.createElement('div');
+
+  quantidades.forEach((qtd, i) => {
+    if (qtd > 0) {
+      const produto = produtos[i];
+      const subtotal = produto.preco * qtd;
+      total += subtotal;
+
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'flex justify-between items-center bg-white p-4 rounded-xl shadow';
+
+      itemDiv.innerHTML = `
+        <label class="flex items-center gap-3 cursor-pointer w-full">
+          <input type="checkbox" class="checkbox-remover" data-index="${i}" />
+          <div class="flex justify-between items-center w-full">
+            <div>
+              <h2 class="font-semibold">${produto.nome}</h2>
+              <p>Quantidade: ${qtd}</p>
             </div>
-          `;
+            <p class="font-bold">R$ ${subtotal.toFixed(2).replace('.', ',')}</p>
+          </div>
+        </label>
+      `;
+
+      containerItens.appendChild(itemDiv);
+    }
+  });
+
+  lista.appendChild(containerItens);
+
+  if (total > 0) {
+    // Total
+    const totalDiv = document.createElement('div');
+    totalDiv.className = 'text-right font-bold text-xl mt-4';
+    totalDiv.textContent = `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
+    lista.appendChild(totalDiv);
+
+    // Botões: Finalizar Compra, Remover Selecionados, Cancelar Carrinho
+    const botoesDiv = document.createElement('div');
+    botoesDiv.className = 'mt-4 flex justify-center gap-4 flex-wrap';
+
+    botoesDiv.innerHTML = `
+      <button onclick="mostrarAba('pagamento')" 
+        class="bg-red-600 text-white px-6 py-3 rounded-lg shadow hover:bg-red-700 transition">
+        Finalizar Compra
+      </button>
+      <button id="btn-remover-selecionados"
+        class="bg-gray-600 text-white px-6 py-3 rounded-lg shadow hover:bg-gray-700 transition" style="display:none;">
+        Remover Selecionados
+      </button>
+      <button id="btn-cancelar-carrinho"
+        class="bg-gray-400 text-white px-6 py-3 rounded-lg shadow hover:bg-gray-500 transition">
+        Cancelar Carrinho
+      </button>
+    `;
+
+    lista.appendChild(botoesDiv);
+
+    // Checkbox listener para mostrar/esconder botão remover selecionados
+    const checkboxes = lista.querySelectorAll('.checkbox-remover');
+    const btnRemover = document.getElementById('btn-remover-selecionados');
+
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        const algumSelecionado = Array.from(checkboxes).some(chk => chk.checked);
+        btnRemover.style.display = algumSelecionado ? 'inline-block' : 'none';
+      });
+    });
+
+    // Botão remover selecionados
+    btnRemover.onclick = () => {
+      checkboxes.forEach(cb => {
+        if (cb.checked) {
+          const idx = parseInt(cb.dataset.index, 10);
+          quantidades[idx] = 0;
         }
       });
-      if(total > 0) {
-        lista.innerHTML += `<div class="text-right font-bold text-xl">Total: R$ ${total.toFixed(2).replace('.', ',')}</div>`;
-        lista.innerHTML += `<div class="mt-4 text-center">
-          <button onclick="mostrarAba('pagamento')" class="bg-red-600 text-white px-6 py-3 rounded-lg shadow hover:bg-red-700 transition">Finalizar Compra</button>
-        </div>`;
-      } else {
-        lista.innerHTML = '<p class="text-center text-gray-500">Seu carrinho está vazio.</p>';
+      atualizarCarrinho();
+    };
+
+    // Botão cancelar carrinho (zera tudo)
+    document.getElementById('btn-cancelar-carrinho').onclick = () => {
+      // Zera todas as quantidades
+      for (let i = 0; i < quantidades.length; i++) {
+        quantidades[i] = 0;
       }
-    }
+      atualizarCarrinho();
+    };
+
+  } else {
+    lista.innerHTML = '<p class="text-center text-gray-500">Seu carrinho está vazio.</p>';
+  }
+}
+
+
 
     let pedidos = [];
 
-    function finalizarCompra() {
-      // Simples validação de forma de pagamento
-      const forma = document.querySelector('input[name="pagamento"]:checked');
-      if (!forma) {
-        alert('Por favor, selecione uma forma de pagamento.');
-        return;
-      }
+function finalizarCompra() {
+  const forma = document.querySelector('input[name="pagamento"]:checked');
+  if (!forma) {
+    alert('Por favor, selecione uma forma de pagamento.');
+    return;
+  }
 
-      // Criar pedido com produtos no carrinho
-      const itensPedido = quantidades.map((qtd, i) => ({ produto: produtos[i], quantidade: qtd })).filter(item => item.quantidade > 0);
-      if(itensPedido.length === 0){
-        alert('Carrinho vazio.');
-        return;
-      }
+  const itensPedido = quantidades.map((qtd, i) => ({ produto: produtos[i], quantidade: qtd })).filter(item => item.quantidade > 0);
+  if(itensPedido.length === 0){
+    alert('Carrinho vazio.');
+    return;
+  }
 
-      pedidos.push({ id: pedidos.length + 1, itens: itensPedido, data: new Date() });
-      // Resetar carrinho
-      quantidades = quantidades.map(() => 0);
-      gerarProdutos();
-      mostrarAba('pedidos');
-      alert('Compra finalizada com sucesso!');
-    }
+  pedidos.push({ id: pedidos.length + 1, itens: itensPedido, data: new Date() });
+  quantidades = quantidades.map(() => 0);
+  gerarProdutos();
+  mostrarAba('pedidos');
+  atualizarPedidos();
+  alert('Compra finalizada com sucesso!');
+}
 
-    function atualizarPedidos() {
-      const lista = document.getElementById('lista-pedidos');
-      lista.innerHTML = '';
-      if(pedidos.length === 0){
-        lista.innerHTML = '<p class="text-center text-gray-500">Nenhum pedido realizado ainda.</p>';
-        return;
+function atualizarPedidos() {
+  const lista = document.getElementById('lista-pedidos');
+  lista.innerHTML = '';
+  
+  if(pedidos.length === 0){
+    lista.innerHTML = '<p class="text-center text-gray-500">Nenhum pedido realizado ainda.</p>';
+    return;
+  }
+
+  pedidos.forEach(pedido => {
+    let itensHtml = pedido.itens.map(item => `<li>${item.produto.nome} x ${item.quantidade}</li>`).join('');
+    lista.innerHTML += `
+      <div class="bg-white p-4 rounded-xl shadow space-y-2">
+        <h3 class="font-bold">Pedido #${pedido.id}</h3>
+        <p>Data: ${pedido.data.toLocaleString('pt-BR')}</p>
+        <ul class="list-disc list-inside">${itensHtml}</ul>
+        <a href="javascript:verStatus(${pedido.id})" class="text-blue-500 underline">Ver Status de Entrega</a>
+      </div>
+    `;
+  });
+}
+
+let pedidoAtual = null;
+let statusAberto = false;
+
+function verStatus() {
+  const container = document.getElementById('lista-status-pedidos');
+  container.innerHTML = '';
+
+  if (pedidos.length === 0) {
+    container.innerHTML = '<p class="text-gray-500">Nenhum pedido realizado ainda.</p>';
+    mostrarAba('entrega');
+    return;
+  }
+
+  pedidos.forEach(pedido => {
+    // Criar container para cada pedido
+    const pedidoDiv = document.createElement('div');
+    pedidoDiv.classList.add('bg-white', 'p-4', 'rounded-xl', 'shadow');
+
+    // Título do pedido
+    const titulo = document.createElement('h3');
+    titulo.textContent = `Pedido #${pedido.id} - ${pedido.data.toLocaleString('pt-BR')}`;
+    titulo.classList.add('font-bold', 'mb-2');
+    pedidoDiv.appendChild(titulo);
+
+    // Lista dos itens do pedido
+    const listaItens = document.createElement('ul');
+    listaItens.classList.add('list-disc', 'list-inside', 'mb-2');
+    pedido.itens.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = `${item.produto.nome} x ${item.quantidade}`;
+      listaItens.appendChild(li);
+    });
+    pedidoDiv.appendChild(listaItens);
+
+    // Botão para mostrar/ocultar status deste pedido
+    const botao = document.createElement('button');
+    botao.textContent = 'Gerar Status';
+    botao.classList.add('bg-red-600', 'text-white', 'px-6', 'py-2', 'rounded-lg', 'shadow', 'hover:bg-red-700', 'transition');
+    pedidoDiv.appendChild(botao);
+
+    // Lista para status (inicialmente oculta)
+    const statusList = document.createElement('ul');
+    statusList.classList.add('list-disc', 'pl-5', 'mt-2', 'hidden');
+    pedidoDiv.appendChild(statusList);
+
+    // Status padrão
+    const statusPadrao = [
+      "✅ Seu pedido foi criado.",
+      "🔧 Seu pedido está sendo preparado para envio.",
+      "📦 Seu pedido foi coletado.",
+      "🏢 Seu pedido chegou ao centro logístico: Guarulhos - SP.",
+      "🏢 Seu pedido chegou ao centro logístico: São Paulo - SP.",
+      "🚚 Pedido em rota de entrega para sua empresa.",
+      "📬 Pedido entregue e recebido por FarmaTodos."
+    ];
+
+    // Controle para abrir/fechar status deste pedido
+    let aberto = false;
+
+    botao.addEventListener('click', () => {
+      if (!aberto) {
+        // Preencher a lista de status
+        statusList.innerHTML = '';
+        statusPadrao.forEach(s => {
+          const li = document.createElement('li');
+          li.textContent = s;
+          statusList.appendChild(li);
+        });
+        statusList.classList.remove('hidden');
+        botao.textContent = 'Fechar Status';
+        botao.classList.remove('bg-red-600', 'hover:bg-red-700');
+        botao.classList.add('bg-gray-600', 'hover:bg-gray-700');
+        aberto = true;
+      } else {
+        statusList.innerHTML = '';
+        statusList.classList.add('hidden');
+        botao.textContent = 'Gerar Status';
+        botao.classList.remove('bg-gray-600', 'hover:bg-gray-700');
+        botao.classList.add('bg-red-600', 'hover:bg-red-700');
+        aberto = false;
       }
-      pedidos.forEach(pedido => {
-        let itensHtml = pedido.itens.map(item => `<li>${item.produto.nome} x ${item.quantidade}</li>`).join('');
-        lista.innerHTML += `
-          <div class="bg-white p-4 rounded-xl shadow space-y-2">
-            <h3 class="font-bold">Pedido #${pedido.id}</h3>
-            <p>Data: ${pedido.data.toLocaleString('pt-BR')}</p>
-            <ul class="list-disc list-inside">${itensHtml}</ul>
-          </div>
-        `;
-      });
-    }
+    });
+
+    container.appendChild(pedidoDiv);
+  });
+
+  mostrarAba('entrega');
+}
+
+
+
+
+function atualizarEstoque() {
+    const tbody = document.getElementById('tabela-estoque');
+    tbody.innerHTML = '';
+
+    estoque.forEach((item, index) => {
+      tbody.innerHTML += `
+        <tr>
+          <td class="border border-gray-300 px-4 py-2">
+            <img src="${item.imagem}" alt="${item.nome}" class="w-12 h-12 object-cover rounded-full" />
+          </td>
+          <td class="border border-gray-300 px-4 py-2">${item.nome}</td>
+          <td class="border border-gray-300 px-4 py-2">
+            <input 
+              type="number" 
+              value="${item.quantidade}" 
+              min="0" 
+              step="1"
+              class="border rounded px-2 py-1 w-16"
+              onchange="atualizarQuantidade(${index}, this.value)"
+            />
+          </td>
+          <td class="border border-gray-300 px-4 py-2">R$ ${item.preco.toFixed(2).replace('.', ',')}</td>
+        </tr>
+      `;
+    });
+
+    atualizarTotalEstoque();
+  }
+
+  function atualizarQuantidade(index, novaQuantidade) {
+    estoque[index].quantidade = parseInt(novaQuantidade);
+    atualizarTotalEstoque();
+  }
+
+  function salvarAlteracoes() {
+    alert("💾 Alterações salvas com sucesso!");
+    console.log("Estoque atualizado:", estoque);
+  }
+
+  function atualizarTotalEstoque() {
+    const total = estoque.reduce((soma, item) => soma + (item.preco * item.quantidade), 0);
+    document.getElementById('total-estoque').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+  }
+
+  atualizarEstoque();
 
     // Inicializa
     gerarProdutos();
