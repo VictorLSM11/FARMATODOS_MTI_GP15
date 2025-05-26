@@ -4,7 +4,7 @@
 }
 
 .tab.active {
-  background-color: #dc2626; /* vermelho mais escuro */
+  background-color: #ffecec; /* vermelho mais escuro */
   color: white;
   border-color: #b91c1c;
 }
